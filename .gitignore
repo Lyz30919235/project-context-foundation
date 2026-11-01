@@ -1,0 +1,10 @@
+# 本地中间文件与交付产物
+/work/
+/outputs/
+
+# 本机认证和私有配置
+.env
+.env.*
+!.env.example
+*.key
+*.pem
