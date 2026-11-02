@@ -46,6 +46,26 @@
 
 ## 业务运行与验证
 
-业务安装、启动、构建、测试和部署方法均待核实，尚无可据以执行的业务命令。
+离线游玩：用浏览器打开 [map.html](../../dist/map.html)，或双击 [打开map.cmd](../../打开map.cmd)。离线入口已内嵌绘图资源、碰撞和脚本，不需要服务器或网络依赖。
 
-取得真实代码及配置后，再按具体操作补充前置条件、准确命令、预期结果、验证方式及必要恢复方法。区分“步骤已记录”“命令已配置”“已执行成功”和“用户已验收”。
+开发命令在仓库根目录执行，前提为 Node.js 可用；无需 npm install：
+
+    npm run build
+    npm test
+    node scripts/validate-level.mjs
+    npm run dev
+
+构建更新 dist/index.html 与 dist/map.html；规则回归验证碰撞、收集、门锁和传送；实际关卡验证器使用同一引擎逐格移动，成功时输出 won=true。开发服务器默认位于 http://127.0.0.1:4173，仅用于本机预览，退出时停止本任务启动的服务器。
+
+修改地图：编辑 [标注](../../src/map.annotations.json)，准备 Python 及 [数字化依赖](../../scripts/requirements-map.txt)，再执行：
+
+    python -X utf8 scripts/digitize-map.py
+    npm run build
+    npm test
+    node scripts/validate-level.mjs
+
+数字化输出 src/level.generated.json；不能以生成成功替代可达性验证。依赖安装是按需的前置操作，不是每次游玩必需。
+
+浏览器检查范围按改动选择：开始探索、键盘/点击行走、碰撞、缩放及相机边界、暂停/恢复、保存与重开；触屏真机和真人完整通关需单独标注。
+
+发布使用 Sites 的同一 project_id，按其工具流程将精确源码提交推送到源仓库，打包 dist 后保存并部署该版本；GitHub origin 仍按上文单独同步。认证令牌只保留在会话内存，经标准输入传入工具，不写入文件或命令参数。部署成功以发布工具返回的终态和地址为准，执行结果见 NOW。

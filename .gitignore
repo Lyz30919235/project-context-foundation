@@ -8,3 +8,11 @@
 !.env.example
 *.key
 *.pem
+
+# 开发工具本地状态
+/node_modules/
+/.sites-runtime/
+/.sites-checkout/
+/.sites-checkout-*/
+__pycache__/
+*.pyc

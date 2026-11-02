@@ -2,7 +2,7 @@
 
 ## 项目定位
 
-这里是项目上下文文档的起点，业务用途待核实。用途与基本使用方式以 [README](README.md) 为准；本索引只负责路由。
+map 是基于用户手绘地图的浏览器迷宫游戏。用途与基本使用方式以 [README](README.md) 为准；本索引只负责路由。
 
 ## 职责与路由
 
@@ -13,6 +13,9 @@
 | 确认长期约定、读写及验证要求 | [AGENTS.md](AGENTS.md) | 接手或规则可能变化时确认适用规则；长期约定变化时更新 |
 | 了解项目用途、基本使用及入口 | [README.md](README.md) | 了解或使用项目时读；实际能力、使用方式或入口变化时更新 |
 | 找到任务对应的资料 | 本文件 | 需要定位时读；入口或职责变化时更新，不复制专题正文 |
+| 修改迷宫规则与状态 | [engine.mjs](src/engine.mjs) | 涉及碰撞、收集、钥匙门、传送和胜利条件时定位相应方法，并运行相关验证 |
+| 修改地图及核对原图标记 | [map.annotations.json](src/map.annotations.json) | 按标记或 repairs 条目定位；生成方式与识别边界见 [游戏设计](docs/context/GAME_DESIGN.md#识别与校准范围) |
+| 修改界面、输入与相机 | [game.mjs](src/game.mjs)、[界面](src/index.html)、[样式](src/style.css) | 按事件、函数或组件定位；变更后核对对应浏览器交互 |
 | 接续当前工作 | [NOW.md](docs/context/NOW.md) | 接续时定位目标、进展、阻塞及下一步；状态实质变化时直接修订 |
 | 定位目录、版本、配置或部署对象 | [MAP.md](docs/context/MAP.md) | 涉及对应对象时读；映射变化时更新，不推断未核实环境 |
 | 执行文档维护或 Git 同步 | [RUNBOOK.md](docs/context/RUNBOOK.md) | 执行对应操作前读；方法变化时更新，未执行步骤不得写成成功 |
