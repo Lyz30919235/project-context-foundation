@@ -35,4 +35,5 @@ work/ 与 outputs/ 是本地产物位置，不作为现行项目事实来源；�
 
 - 游戏：纯静态浏览器代码，运行时无网络资源和第三方包依赖。
 - 本轮开发工具：Node.js 24.20.0；数字化工具依赖见 [requirements-map.txt](../../scripts/requirements-map.txt)。离线游玩不需要这些开发依赖。
-- 部署配置：[hosting.json](../../.openai/hosting.json)，静态目录为 dist；实际发布状态见 [NOW](NOW.md)。
+- 部署配置：[hosting.json](../../.openai/hosting.json)，静态目录为 dist。
+- 在线试玩：[map · 纸上迷宫](https://map-paper-maze-lyz.littlecider1.chatgpt.site)，当前仅站点所有者可访问。发布结果及代码基线见 [NOW](NOW.md#核验与证据)。
