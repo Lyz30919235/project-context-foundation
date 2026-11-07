@@ -6,7 +6,11 @@
 
 运行规则以 [游戏引擎](../../src/engine.mjs) 为实际行为来源，地图标记与校准参数以 [map.annotations.json](../../src/map.annotations.json) 为权威数据；本页记录设计理由和证据边界。
 
-## 实现与体验
+## Windows 原生版
+
+当前主版本采用 Godot 与 GDScript；结构、去线范围和当前校准见 [NATIVE](NATIVE.md)。以下网页实现和 33 处校准描述保留为 v0.1 基线，不能代替原生版的当前结果。
+
+## 网页旧版实现与体验
 
 采用无运行时依赖的 HTML、Canvas 与 JavaScript。构建结果是可以离线打开的单文件 map.html，同时生成 index.html 作为站点入口。具体入口与命令见 [README](../../README.md) 和 [RUNBOOK](RUNBOOK.md#业务运行与验证)。
 

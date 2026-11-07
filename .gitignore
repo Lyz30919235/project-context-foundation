@@ -16,3 +16,7 @@
 /.sites-checkout-*/
 __pycache__/
 *.pyc
+
+# Godot import cache and native build output
+.godot/
+/exports/

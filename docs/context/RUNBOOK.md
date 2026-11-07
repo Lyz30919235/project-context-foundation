@@ -46,6 +46,31 @@
 
 ## 业务运行与验证
 
+### Windows 原生版
+
+用本轮交付压缩包内的 map.exe 运行；map.pck 与程序保持同目录，无需开发环境。
+
+从源码构建需要 Windows x86_64 与 Python。先准备固定的 Godot 4.7.2 编辑器及模板：
+
+    python -X utf8 scripts/prepare_native_tools.py
+
+仅当修改原图、标注或去线算法时，准备地图工具并重新生成原生资源：
+
+    python -m pip install --target work/pydeps -r scripts/requirements-native.txt
+    python -X utf8 scripts/prepare_native_map.py
+
+原生生成器会自动使用 work/pydeps。它保留原始照片及旧网页产物，输出到 godot/assets/map/；不得手工覆盖生成文件。
+
+完整测试与打包：
+
+    python -X utf8 scripts/build_native.py
+
+默认依次执行导入、规则/移动测试、界面/存档集成、真实圆形控制器全图测试、Windows 导出、独立导出程序自检及 ZIP 哈希验证。输出 outputs/map-windows-x64-v0.2.0.zip，内含程序、PCK、中文说明、许可证和 release-info.json。正式交付应在已审查源码提交后构建，使来源提交和 dirty 标记可核实。
+
+仅在相同代码的检查刚通过且无需重复时可用 --skip-tests；修改地图可配合 --regenerate-map。日志位于 work/native/，只按失败环节定位，不默认读取所有日志。结果与人工验收范围统一见 NOW。
+
+### 网页旧版
+
 离线游玩：用浏览器打开 [map.html](../../dist/map.html)，或双击 [打开map.cmd](../../打开map.cmd)。离线入口已内嵌绘图资源、碰撞和脚本，不需要服务器或网络依赖。
 
 开发命令在仓库根目录执行，前提为 Node.js 可用；无需 npm install：
